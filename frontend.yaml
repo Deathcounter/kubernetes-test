@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: api
-  name: api
+    app: frontend
+  name: frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: frontend
   strategy: {}
   template:
     metadata:
       labels:
-        app: api
+        app: frontend
     spec:
       containers:
       - image: ghcr.io/tsclabs-eu/learning-tracker-frontend:v1.1.0
