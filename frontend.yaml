@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - image: ghcr.io/tsclabs-eu/learning-tracker-frontend:v1.1.0
+        name: learning-tracker-frontend
+        resources: {}
+	      envFrom:
+          - configMapRef:
+              name: frontend-config
+status: {}
